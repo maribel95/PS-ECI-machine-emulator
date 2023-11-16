@@ -49,10 +49,19 @@ MOVE.W 2(SP), D1  ; Save result in D1 register
 ADDQ.W #4, SP     ; Empty the stack
 
 ```
+## Decoding phase
+
+In this phase a library subroutine has been used.
+In this case, the stack has been used to be able to use registers, since their content is restored once the stack subroutine has finished. This leaves more space for the use of registers within the main program.
+Decoding consists of deducing the instruction contained in the EPROG vector. You look at the bits that make up the most significant part of the Word and then you can know which instruction is being processed.
 
 
+```assembly
+
+DECOD
 
 
+```
 
 
 
