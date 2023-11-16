@@ -16,8 +16,26 @@ Both registers and instruction set are 16 bits. The PS-ECI has the following reg
 
 
 
+The emulation process has been divided into three different phases.
 
+## Fetch phase
 
+This phase consists of fetching an instruction from memory and bringing it to the program, using a register. This way you can start using it.
+
+First of all, the EPROG vector has been used, which is where all the instructions are stored. Its memory location has been reviewed through the LEA instruction. The entire vector has been traversed as the iterations of the program progressed, so that in each step the instructions of the program to be emulated were obtained. To do this, we have based ourselves on the EPC program counter, which increases its value one by one.
+
+```assembly
+
+MOVE.W EPC, D0
+LSL.W   #1, D0   ; Multiply by 2 because it's a Word vector
+LEA EPROG, A0   ; Load EPROG memory access in A0 register
+ADD.W DO,A0     ; Next instruction = EPROG + 2*EPC
+
+MOVE.W (A0), D0 ; A0 content is the instruction we want to process
+
+MOVE.W D0, EIR  ; Set the emulate instruction in EIR
+ADDQ.W #1, EPC  ; EPC counter 
+```
 
 
 
