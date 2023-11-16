@@ -27,7 +27,7 @@ First of all, the EPROG vector has been used, which is where all the instruction
 ```assembly
 
 MOVE.W EPC, D0
-LSL.W   #1, D0   ; Multiply by 2 because it's a Word vector
+LSL.W   #1, D0  ; Multiply by 2 because it's a Word vector
 LEA EPROG, A0   ; Load EPROG memory access in A0 register
 ADD.W DO,A0     ; Next instruction = EPROG + 2*EPC
 
@@ -37,8 +37,18 @@ MOVE.W D0, EIR  ; Set the emulate instruction in EIR
 ADDQ.W #1, EPC  ; EPC counter 
 ```
 
+From this point, the 68k stack is prepared to be able to execute the library subroutine for decoding the instructions.
 
 
+```assembly
+
+SUBQ.W #2, SP     ; We keep an empty space where we will enter index instruction
+MOVE.W EIR, -(SP) ; We also keep space for the EIR
+JSR DECOD         ; Jump to a subrutine(for decod instructions)
+MOVE.W 2(SP), D1  ; Save result in D1 register
+ADDQ.W #4, SP     ; Empty the stack
+
+```
 
 
 
