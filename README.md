@@ -97,7 +97,12 @@ An approach based on the Huffman tree has been used to decode each instruction. 
 From this point on, the fetch phase has already been programmed. As a reminder, what this phase does is look for the instruction in main memory and save it in a register so that the machine can use and process it. Then, a process of decoding the content has been carried out to know what instruction it is.
 Finally, the operation of these PS-ECI emulator instructions must be programmed, and their consequent updating of the flags, which indicate the status of the CPU.
 
+Many of the base instructions of the emulated machine are similar to those of the Easy68k assembler. So the conversion has been practically direct. However, it must be taken into account that the results of the flags, registers and operands could vary in some cases.
 
+Table of subrutines:
+
+
+<img width="810" alt="Captura de pantalla 2023-11-17 a las 8 31 37" src="https://github.com/maribel95/PS-ECI-machine-emulator/assets/61268027/d8ad934a-8f8f-46ac-a5f5-22429ed5922c">
 
 
 
