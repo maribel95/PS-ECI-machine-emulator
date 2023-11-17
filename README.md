@@ -22,6 +22,16 @@ The emulation process has been divided into three different phases.
 
 This phase consists of fetching an instruction from memory and bringing it to the program, using a register. This way you can start using it.
 
+The process involves the following steps:
+
+Program Counter (PC): The CPU maintains a register called the Program Counter (PC) that contains the memory address of the next instruction to be executed.
+Memory Access: The CPU uses the address stored in the PC to access the main memory. The PC address is used as an index to obtain the instruction stored at that memory address.
+Instruction Read: The instruction at the memory address indicated by the PC is read from memory and placed in an internal register so that the program can use it.
+Program Counter Increment: After reading the instruction, the PC is incremented to point to the next memory address that contains the next instruction. This prepares the CPU for the next instruction cycle.
+Decoding and Execution: The instruction in the Instruction Register is decoded to determine the operation to be performed by the CPU. Then the CPU executes the corresponding operation.
+
+**NOTE**: For all emulated instructions, an e(emulation) is prefixed to the word. Ex: PC = EPC
+
 First of all, the EPROG vector has been used, which is where all the instructions are stored. Its memory location has been reviewed through the LEA instruction. The entire vector has been traversed as the iterations of the program progressed, so that in each step the instructions of the program to be emulated were obtained. To do this, we have based ourselves on the EPC program counter, which increases its value one by one.
 
 ```assembly
@@ -73,6 +83,13 @@ An approach based on the Huffman tree has been used to decode each instruction. 
 
 
 <img width="874" alt="Captura de pantalla 2023-11-17 a las 7 13 25" src="https://github.com/maribel95/PS-ECI-machine-emulator/assets/61268027/5a4b59b3-d5d1-4b10-9c13-1dd7d88be7ad">
+
+
+## Execution phase
+
+
+
+
 
 
 
