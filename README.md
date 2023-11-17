@@ -99,12 +99,15 @@ Finally, the operation of these PS-ECI emulator instructions must be programmed,
 
 Many of the base instructions of the emulated machine are similar to those of the Easy68k assembler. So the conversion has been practically direct. However, it must be taken into account that the results of the flags, registers and operands could vary in some cases.
 
-Table of subrutines:
+### Table of subrutines:
 
 
 <img width="810" alt="Captura de pantalla 2023-11-17 a las 8 31 37" src="https://github.com/maribel95/PS-ECI-machine-emulator/assets/61268027/d8ad934a-8f8f-46ac-a5f5-22429ed5922c">
 
+### 68k registers table
 
+
+<img width="817" alt="Captura de pantalla 2023-11-17 a las 8 51 16" src="https://github.com/maribel95/PS-ECI-machine-emulator/assets/61268027/cb97a5cf-2e15-4700-bfba-87c283671612">
 
 
 
