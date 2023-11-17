@@ -60,18 +60,19 @@ Decoding consists of deducing the instruction contained in the EPROG vector. You
 
 DECOD
 
-MOVE.W DO, -(SP)    ; We push the register that we are going to use in the subroutine
-MOVE.W 6(SP), DO    ; EIR content is in sixth position in the stack
+  MOVE.W DO, -(SP)    ; We push the register that we are going to use in the subroutine
+  MOVE.W 6(SP), DO    ; EIR content is in sixth position in the stack
 
-BTST.L #15, DO      ; We want to check if bit 15 of the instruction is 1 or 0
-BNE BIT_1
-BRA BIT_0
+  BTST.L #15, DO      ; We want to check if bit 15 of the instruction is 1 or 0
+  BNE BIT_1
+  BRA BIT_0
 
 ```
 
+An approach based on the Huffman tree has been used to decode each instruction. The idea is to use a binary decision tree, the left branch assigns the bit the value of 1. In each right branch, the value 0 is assigned. In this way, the instruction that needs to be read is constructed in machine language.
 
 
-
+<img width="874" alt="Captura de pantalla 2023-11-17 a las 7 13 25" src="https://github.com/maribel95/PS-ECI-machine-emulator/assets/61268027/5a4b59b3-d5d1-4b10-9c13-1dd7d88be7ad">
 
 
 
