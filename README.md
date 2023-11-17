@@ -60,6 +60,12 @@ Decoding consists of deducing the instruction contained in the EPROG vector. You
 
 DECOD
 
+MOVE.W DO, -(SP)    ; We push the register that we are going to use in the subroutine
+MOVE.W 6(SP), DO    ; EIR content is in sixth position in the stack
+
+BTST.L #15, DO      ; We want to check if bit 15 of the instruction is 1 or 0
+BNE BIT_1
+BRA BIT_0
 
 ```
 
