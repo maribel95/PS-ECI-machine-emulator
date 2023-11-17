@@ -34,7 +34,7 @@ The process involves the following steps:
 - [X] Instruction Read: The instruction at the memory address indicated by the PC is read from memory and placed in an internal register so that the program can use it.
 - [X] Program Counter Increment: After reading the instruction, the PC is incremented to point to the next memory address that contains the next instruction. This prepares the CPU for the next instruction cycle.
 - [X] Decoding and Execution: The instruction in the Instruction Register is decoded to determine the operation to be performed by the CPU. Then the CPU executes the corresponding operation.
-- [ ] 
+      
 **NOTE**: For all emulated instructions, an e(emulation) is prefixed to the word. Ex: PC = EPC
 
 The instructions of the program to emulate will be given in a vector called eprog.
@@ -93,6 +93,9 @@ An approach based on the Huffman tree has been used to decode each instruction. 
 
 
 ## Execution phase
+
+From this point on, the fetch phase has already been programmed. As a reminder, what this phase does is look for the instruction in main memory and save it in a register so that the machine can use and process it. Then, a process of decoding the content has been carried out to know what instruction it is.
+Finally, the operation of these PS-ECI emulator instructions must be programmed, and their consequent updating of the flags, which indicate the status of the CPU.
 
 
 
